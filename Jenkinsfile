@@ -3,7 +3,7 @@ node ('master') {
   stage('Build') {
     withMaven(maven: 'M3') {
       if (isUnix()) {
-        sh '_JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true  mvn -Dmaven.test.failure.ignore clean package'
+        sh 'mvn -Dmaven.test.failure.ignore clean package'
       }
       else {
         bat 'mvn -Dmaven.test.failure.ignore clean package'
